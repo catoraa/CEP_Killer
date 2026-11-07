@@ -81,13 +81,13 @@ FSP-S 的处理规则：
 安装 Python 依赖：
 
 ```powershell
-python -m pip install -r bios\00_Tools\requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 默认 UEFIExtract 路径：
 
 ```text
-bios\00_Tools\tools\UEFIExtract.exe
+tools\UEFIExtract.exe
 ```
 
 工具当前锁定并验证过的解析器版本：
@@ -111,7 +111,7 @@ NE alpha 75 (Jul 10 2026)
 ### 仅分析
 
 ```powershell
-python bios\00_Tools\14th_b0_cep_patcher.py `
+python 14th_b0_cep_patcher.py `
   .\original.rom `
   --dry-run
 ```
@@ -130,7 +130,7 @@ Dry-run 不写文件，也不执行最终的补丁后重新解包验证。
 推荐显式指定输出路径：
 
 ```powershell
-python bios\00_Tools\14th_b0_cep_patcher.py `
+python 14th_b0_cep_patcher.py `
   .\original.rom `
   --output .\patched.rom
 ```
@@ -138,7 +138,7 @@ python bios\00_Tools\14th_b0_cep_patcher.py `
 覆盖已有输出：
 
 ```powershell
-python bios\00_Tools\14th_b0_cep_patcher.py .\original.rom --output .\patched.rom --force
+python 14th_b0_cep_patcher.py .\original.rom --output .\patched.rom --force
 ```
 
 ### 命令行参数
@@ -222,15 +222,15 @@ Get-Content .\patch.report.json -Raw -Encoding UTF8 |
 而是验证 patcher 的关键安全逻辑：
 
 ```powershell
-python bios\00_Tools\14th_b0_cep_checker.py
+14th_b0_cep_checker.py
 ```
 
 静态检查：
 
 ```powershell
-python -m ruff format --check bios\00_Tools\14th_b0_cep_patcher.py
-python -m ruff check bios\00_Tools\14th_b0_cep_patcher.py
-python -m py_compile bios\00_Tools\14th_b0_cep_patcher.py
+python -m ruff format --check14th_b0_cep_patcher.py
+python -m ruff check 14th_b0_cep_patcher.py
+python -m py_compile 14th_b0_cep_patcher.py
 ```
 
 当前测试覆盖：
@@ -252,9 +252,3 @@ python -m py_compile bios\00_Tools\14th_b0_cep_patcher.py
 - 修改 ROM 会改变厂商镜像签名，FFS checksum 有效也不能恢复该签名；Secure Flash 可能拒绝刷入。
 - 刷写前保留完整 BIOS/SPI 备份，并准备 FPT 或 SPI 编程器作为恢复手段。
 - `0x901/1 data=3` 与平台相关，使用前应确认目标 CPU、微码和 BIOS 的行为。
-
-详细原理、定位条件、失败处理和维护流程见：
-
-```text
-../00_Docs/BIOS_CEP_MAILBOX_PATCH_GUIDE.md
-```
