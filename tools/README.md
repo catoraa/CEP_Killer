@@ -5,8 +5,6 @@
 | 文件 | 用途 |
 |---|---|
 | `UEFIExtract.exe` | 自动补丁流程解析 UEFI 固件，必需 |
-| `UEFITool.exe` | 人工查看 FFS、FV、Section 和固件结构 |
-| `ifrextractor.exe` | 提取 BIOS Setup IFR，用于分析选项和默认值 |
 
 `14th_b0_cep_patcher.py` 默认调用：
 
@@ -24,7 +22,7 @@ uefi_firmware==1.16
 它们仍通过 Python/pip 环境安装：
 
 ```powershell
-python -m pip install -r bios\00_Tools\requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 这些 EXE 的版权和再分发条件归各自原作者所有。对外分发整套工具前，应分别确认对应许可证。
