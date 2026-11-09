@@ -41,7 +41,6 @@ except ImportError:
     efi_compressor = None
 
 
-WORKSPACE = Path(__file__).resolve().parents[2]
 TOOL_DIR = Path(__file__).resolve().parent
 DEFAULT_UEFIEXTRACT = TOOL_DIR / "tools" / "UEFIExtract.exe"
 
