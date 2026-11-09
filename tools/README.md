@@ -7,7 +7,6 @@
 | `UEFIExtract.exe` | 自动补丁流程解析 UEFI 固件，必需 |
 | `UEFITool.exe` | 人工查看 FFS、FV、Section 和固件结构 |
 | `ifrextractor.exe` | 提取 BIOS Setup IFR，用于分析选项和默认值 |
-| `DL_SCEWIN.exe` | Intel 微码、签名和固件分析辅助工具 |
 
 `14th_b0_cep_patcher.py` 默认调用：
 
